@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react"; // ShoppingBag অব্যবহৃত ছিল তাই বাদ দেওয়া হয়েছে বা রাখতে পারেন
+import { Menu, X } from "lucide-react"; 
+import { useCart } from "@/context/CartContext";
 
 import Container from "./Container";
 
@@ -12,9 +13,13 @@ const navLinks = [
   { name: "Cart", href: "/cart" },
 ];
 
+
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { totalItemsCount } = useCart(); 
 
+  
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white">
       <Container>
@@ -38,12 +43,12 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden md:flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shopping-bag-icon lucide-shopping-bag"><path d="M16 10a4 4 0 0 1-8 0"/><path d="M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></svg>
-            <span className="rounded-full bg-[#c8a96a] px-2 py-0.5 text-xs font-semibold text-black">
-              0
+            <Link href="/cart" className="flex items-center gap-2 group cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shopping-bag-icon lucide-shopping-bag group-hover:stroke-[#C8A96A] transition-colors"><path d="M16 10a4 4 0 0 1-8 0"/><path d="M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></svg>
+            <span className="rounded-full bg-[#c8a96a] px-2 py-0.5 text-xs font-semibold text-black group-hover:bg-black group-hover:text-white transition-colors">
+                {totalItemsCount}
             </span>
-          </div>
+            </Link>
 
           
           <button

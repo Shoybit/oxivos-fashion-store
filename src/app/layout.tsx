@@ -1,12 +1,27 @@
 import { CartProvider } from "@/context/CartContext";
 import "@/app/globals.css";
+import Navbar from "@/layout/Navbar";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata = {
+  title: "Velora",
+  description: "E-commerce platform",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body>
+      <body className="flex min-h-screen flex-col bg-white text-black antialiased">
         <CartProvider>
-          {children}
+          <Navbar />
+          
+          <div className="flex-1">
+            {children}
+          </div>
+
         </CartProvider>
       </body>
     </html>
