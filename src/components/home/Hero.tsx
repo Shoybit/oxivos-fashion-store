@@ -33,9 +33,10 @@ export default function Hero() {
               </Link>
               <Link
                 href="/products"
-                className="w-full rounded-md border border-gray-300 bg-white px-8 py-3.5 text-center text-sm font-semibold text-gray-700 shadow-sm transition hover:bg-gray-50 sm:w-auto"
+                className="group relative overflow-hidden rounded-md border border-gray-300 px-8 py-3.5 text-center text-sm font-semibold text-gray-700 shadow-sm w-full sm:w-auto hover:border-[#C8A96A]"
               >
-                Learn More
+                <span className="absolute inset-0 bg-[#C8A96A] transition-all duration-300 scale-x-0 group-hover:scale-x-100 origin-left" />
+                <span className="relative group-hover:text-white transition-colors duration-300">Learn More</span>
               </Link>
             </div>
             
@@ -60,7 +61,7 @@ export default function Hero() {
             <div className="absolute -top-3 -right-3 -z-10 h-full w-full rounded-xl border-2 border-[#C8A96A]/30" />
             <div className="absolute -bottom-3 -left-3 -z-10 h-full w-full rounded-xl border-2 border-[#C8A96A]/20" />
             
-            <div className="overflow-hidden rounded-xl bg-gray-100 shadow-2xl aspect-[4/5]">
+            <div className="overflow-hidden rounded-xl bg-gray-100 shadow-2xl aspect-4/5">
               <img
                 src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop"
                 alt="Velora Fashion Store Hero Image"

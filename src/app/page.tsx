@@ -1,3 +1,4 @@
+import FeaturedProducts from "@/components/home/FeaturedProducts";
 import Hero from "@/components/home/Hero";
 import Navbar from "@/layout/Navbar";
 
@@ -6,6 +7,7 @@ export default function HomePage() {
     <>
       <Navbar />
       <Hero></Hero>
+      <FeaturedProducts></FeaturedProducts>
     </>
   );
 }
