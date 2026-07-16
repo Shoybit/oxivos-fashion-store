@@ -4,6 +4,7 @@
 import { useState, use } from "react";
 import Link from "next/link";
 import { products } from "@/lib/products";
+import { useCart } from "@/context/CartContext"; 
 import { Star, StarHalf, ArrowLeft, Check, AlertTriangle, ShoppingBag } from "lucide-react";
 import Container from "@/layout/Container";
 
@@ -15,6 +16,8 @@ export default function ProductDetailsPage({ params }: PageProps) {
   const resolvedParams = use(params);
   const productId = parseInt(resolvedParams.id);
   const product = products.find((p) => p.id === productId);
+
+  const { addToCart } = useCart();
 
   const [selectedColor, setSelectedColor] = useState<string>("");
   const [selectedSize, setSelectedSize] = useState<string>("");
@@ -33,8 +36,22 @@ export default function ProductDetailsPage({ params }: PageProps) {
     );
   }
 
-  if (!selectedColor && product.colors.length > 0) setSelectedColor(product.colors[0]);
-  if (!selectedSize && product.sizes.length > 0) setSelectedSize(product.sizes[0]);
+  if (!selectedColor && product.colors && product.colors.length > 0) {
+    setSelectedColor(product.colors[0]);
+  }
+  if (!selectedSize && product.sizes && product.sizes.length > 0) {
+    setSelectedSize(product.sizes[0]);
+  }
+
+  const handleAddToCart = () => {
+    const finalColor = selectedColor || (product.colors && product.colors[0]) || "Default";
+    const finalSize = selectedSize || (product.sizes && product.sizes[0]) || "Default";
+
+    addToCart(product, 1, finalColor, finalSize);
+
+    setIsAdded(true);
+    setTimeout(() => setIsAdded(false), 2000);
+  };
 
   const renderStars = (rating: number) => {
     const stars = [];
@@ -51,11 +68,6 @@ export default function ProductDetailsPage({ params }: PageProps) {
       }
     }
     return stars;
-  };
-
-  const handleAddToCart = () => {
-    setIsAdded(true);
-    setTimeout(() => setIsAdded(false), 2000);
   };
 
   return (
@@ -94,7 +106,6 @@ export default function ProductDetailsPage({ params }: PageProps) {
               {product.name}
             </h1>
 
-            {/* Rating */}
             <div className="flex items-center gap-2">
               <div className="flex gap-0.5">{renderStars(product.rating)}</div>
               <span className="text-sm font-semibold text-gray-900">{product.rating}</span>
@@ -113,7 +124,7 @@ export default function ProductDetailsPage({ params }: PageProps) {
               </p>
             </div>
 
-            {product.colors.length > 0 && (
+            {product.colors && product.colors.length > 0 && (
               <div>
                 <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-3">Color</h3>
                 <div className="flex gap-3">
@@ -134,7 +145,7 @@ export default function ProductDetailsPage({ params }: PageProps) {
               </div>
             )}
 
-            {product.sizes.length > 0 && (
+            {product.sizes && product.sizes.length > 0 && (
               <div>
                 <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-3">Size</h3>
                 <div className="flex gap-2">

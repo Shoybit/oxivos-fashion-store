@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react"; 
+import { Menu, X } from "lucide-react"; // ShoppingBag অব্যবহৃত ছিল তাই বাদ দেওয়া হয়েছে বা রাখতে পারেন
+
 import Container from "./Container";
 
 const navLinks = [
