@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import { products } from "@/lib/products";
 import ProductCard from "../../app/products/ProductCard";
 
