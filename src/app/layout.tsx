@@ -1,6 +1,7 @@
 import { CartProvider } from "@/context/CartContext";
 import "@/app/globals.css";
 import Navbar from "@/layout/Navbar";
+import Footer from "@/layout/Footer";
 
 export const metadata = {
   title: "Velora",
@@ -21,6 +22,8 @@ export default function RootLayout({
           <div className="flex-1">
             {children}
           </div>
+          
+          <Footer></Footer>
 
         </CartProvider>
       </body>
