@@ -44,7 +44,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin size={16} className="text-[#C8A96A] mt-0.5 shrink-0" />
-                <span>Naogaon, Rajshahi Division, Bangladesh</span>
+                <span>Dhaka,Bangladesh</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} className="text-[#C8A96A] shrink-0" />

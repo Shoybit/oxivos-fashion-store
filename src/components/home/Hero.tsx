@@ -42,16 +42,18 @@ export default function Hero() {
             
             <div className="grid grid-cols-3 gap-4 pt-8 text-left border-t border-gray-200/60 max-w-sm mx-auto lg:mx-0">
               <div>
-                <p className="text-2xl font-bold text-gray-900">12k+</p>
+                <p className="text-2xl font-bold text-gray-900">500+</p>
                 <p className="text-xs text-gray-500">Premium Products</p>
               </div>
+              
               <div>
-                <p className="text-2xl font-bold text-gray-900">99%</p>
-                <p className="text-xs text-gray-500">Happy Customers</p>
+                <p className="text-2xl font-bold text-gray-900">4.8★</p>
+                <p className="text-xs text-gray-500">Customer Rating</p>
               </div>
+              
               <div>
-                <p className="text-2xl font-bold text-gray-900">24/7</p>
-                <p className="text-xs text-gray-500">Fast Support</p>
+                <p className="text-2xl font-bold text-gray-900">Free</p>
+                <p className="text-xs text-gray-500">Shipping</p>
               </div>
             </div>
           </div>
