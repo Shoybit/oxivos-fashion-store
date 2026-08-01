@@ -1,4 +1,4 @@
-Not MY personal repo this repo project idea requement is client provider 
+Rewuement is very harmful, not 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
